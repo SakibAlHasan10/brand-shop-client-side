@@ -1,27 +1,31 @@
+import Social from "./Social";
+
 const Footer = () => {
   return (
-    <div className="bg-base-200">
-      <footer className="footer p-10  text-base-content max-w-6xl mx-auto px-8 ">
+    <div className="max-w-6xl mx-auto px-8">
+        <Social></Social>
+      <footer className="footer p-10 bg-[#292929]  text-[#b0afaf]  ">
         <nav>
-          <header className="footer-title">Services</header>
+          <header className="footer-title text-[#fff]">Services</header>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
           <a className="link link-hover">Marketing</a>
           <a className="link link-hover">Advertisement</a>
         </nav>
         <nav>
-          <header className="footer-title">Company</header>
+          <header className="footer-title text-[#fff]">Company</header>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </nav>
         <nav>
-          <header className="footer-title">Legal</header>
+          <header className="footer-title text-[#ffffff]">Legal</header>
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
         </nav>
+        
         <form>
           <header className="footer-title">Newsletter</header>
           <fieldset className="form-control w-80">

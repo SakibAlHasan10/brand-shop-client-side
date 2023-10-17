@@ -45,7 +45,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <img src="/tidal-wave.png" alt="" className="h-16 w-40"/>
+          <a href="" className="text-3xl font-bold">TidalWave</a>
+          {/* <img src="/tidal-wave.png" alt="" className="h-16 w-40"/> */}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
