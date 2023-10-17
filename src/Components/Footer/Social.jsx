@@ -1,9 +1,9 @@
 
 const Social = () => {
     return (
-        <div className="text-[#b0afaf] bg-[#353535]">
+        <div className="text-[#b0afaf] rounded-t-lg bg-[#353535]">
 
-        <div className=" flex py-6 justify-between w-2/4 mx-auto">
+        <div className=" grid grid-cols-1 md:grid-cols-5 py-8  w-2/4 md:w-4/5 mx-auto">
             <div>
                 Facebook
             </div>
