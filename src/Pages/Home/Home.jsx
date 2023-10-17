@@ -1,7 +1,7 @@
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-slate-50">
             home
         </div>
     );
