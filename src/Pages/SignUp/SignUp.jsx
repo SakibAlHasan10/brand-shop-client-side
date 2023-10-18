@@ -4,6 +4,7 @@ import Social from "../../Sheare/SocialResigter/Social";
 import useApi from "../../AuthApi/useApi";
 import {ToastContainer,toast} from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
+import { updateProfile } from "firebase/auth";
 const SignUp = () => {
   const [errorText, setErrorText] = useState('')
   const {createUserWithEmail} = useApi()
@@ -30,6 +31,15 @@ const SignUp = () => {
       createUserWithEmail(email, password)
       .then((res)=>{
         console.log(res.user)
+        updateProfile(res.user,{
+          displayName:name, photoURL:photo,
+      })
+      .then(()=>{
+        console.log('profile update')
+      })
+      .catch(error=>{
+        console.log(error)
+      })
       toast.success('your signup successful', {position: toast.POSITION.TOP_RIGHT})
       })
       .catch(error=>{
