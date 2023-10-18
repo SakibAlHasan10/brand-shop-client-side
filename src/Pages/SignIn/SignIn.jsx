@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
     const [errorText, setErrorText] = useState('')
@@ -16,8 +17,7 @@ const SignIn = () => {
       <div className="hero min-h-screen">
         <div className="hero-content w-full flex-col">
           <div className="text-center">
-            <h1 className="text-3xl font-bold">Sign In now!</h1>
-            
+            <h1 className="text-3xl font-bold">Login now!</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
             <form onSubmit={handleSignIn} className="card-body">
@@ -53,8 +53,9 @@ const SignIn = () => {
                 <p className="text-red-600 text-lg mt-2 font-semibold">{errorText}</p>
               </div>
               <div className="form-control mt-2">
-                <button type="submit" className="btn btn-primary">Sign In</button>
+                <button type="submit" className="btn btn-primary">Login</button>
               </div>
+            <p className="text-center mt-4">Not a Member? <Link to={'/sign-up'}>Signup</Link></p>
             </form>
           </div>
         </div>
