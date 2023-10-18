@@ -1,8 +1,9 @@
+import Slider from "../../Sheare/Slider/Slider";
 
 const Banner = () => {
     return (
-        <div>
-            Banner
+        <div className="my-5">
+            <Slider></Slider>
         </div>
     );
 };
