@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Social from "../../Sheare/SocialResigter/Social";
+import useApi from "../../AuthApi/useApi";
 
 const SignUp = () => {
   const [errorText, setErrorText] = useState('')
+  const {createUserWithEmail} = useApi()
   const handleSignUp =(e)=>{
     e.preventDefault()
     setErrorText('')
@@ -24,7 +26,14 @@ const SignUp = () => {
       return
       }
     }
-    console.log(email, name, photo, password)
+      createUserWithEmail(email, password)
+      .then((res)=>{
+        console.log(res.user)
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+    // console.log(email, name, photo, password)
   }
   return (
     <div>
