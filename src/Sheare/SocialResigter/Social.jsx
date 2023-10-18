@@ -1,6 +1,5 @@
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import useApi from "../../AuthApi/useApi";
-
 const Social = () => {
   const {createAccountWithGoogle, createAccountWithGitHub} = useApi()
 

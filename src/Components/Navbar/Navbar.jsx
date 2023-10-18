@@ -1,18 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
-
+import {ToastContainer,toast} from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 const Navbar = () => {
   const { user, logOut } = useApi();
   const handleLogOut =()=>{
     logOut()
     .then(()=>{
-      alert('LogOut successfully')
+      toast.success('LogOut successful', {position: toast.POSITION.TOP_RIGHT})
+      // alert('hello')
     })
     .catch(error=>console.error(error))
   }
-  console.log(user);
+  console.log(user?.photoURL);
   return (
     <div className="bg-base-100 shadow-md">
+      <ToastContainer/>
       <div className="navbar  max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="navbar-start">
           <div className="dropdown">
@@ -111,13 +114,13 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center gap-2">
               <div>
-                    <h4>{user.displayName}</h4>
+                    <h4>{user?.displayName}</h4>
                   </div>
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   
                   <div className="w-10 rounded-full">
-                    <img src={user.photoURL} />
+                    <img src={user?.photoURL} />
                   </div>
                 </label>
                 <ul
