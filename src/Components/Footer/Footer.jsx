@@ -1,10 +1,12 @@
 import Social from "./Social";
-
+import { FaLocationDot } from 'react-icons/fa6';
+import { FaPhone } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 const Footer = () => {
   return (
     <div className="max-w-screen-xl mx-auto mb-16 px-8 ">
         <Social></Social>
-      <footer className=" place-items-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-10 p-10 rounded-b-lg bg-[#292929]   text-[#b0afaf]  ">
+      <footer className=" place-items-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 p-10 rounded-b-lg bg-[#292929]   text-[#b0afaf]  ">
         <div className="leading-10">
           <header className="footer-title  text-[#fff]">Best sellers</header>
           <a className="link link-hover">Specials</a> <br />
@@ -26,9 +28,18 @@ const Footer = () => {
         <div className="leading-10">
           <header className="footer-title mb-5 text-[#ffffff]">Legal</header>
           <p className="leading-6">If your question is not answered there, please use one of the contact methods below.</p>
+          <div className="flex gap-3 items-center">
+            <FaLocationDot className="w-10 h-10 text-3xl rounded-full border-2 p-2 border-[#b0afaf]"/>
           <p className="leading-5 my-5">175 SW 7th St #2009, Miami, Fl <br /> 33130, United States</p>
+          </div>
+          <div className="flex gap-3 items-center">
+          <FaPhone className="w-10 h-10 text-3xl rounded-full border-2 p-2 border-[#b0afaf]"/>
           <p>0123.456.789</p>
+          </div>
+          <div className="flex gap-3 items-center mt-4">
+            <MdEmail className="w-10 h-10 text-3xl rounded-full border-2 p-2 border-[#b0afaf]"/>
           <p>tidal@wave.com</p>
+          </div>
         </div>
         
         <form >
