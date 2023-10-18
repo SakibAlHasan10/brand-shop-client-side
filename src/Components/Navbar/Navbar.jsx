@@ -97,12 +97,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <NavLink
-            to={`/login`}
+            to={`/sign-in`}
             className={`${({ isActive, isPending }) =>
               isActive ? "active" : isPending ? "pending" : ""}
             btn-sm`}
           >
-            LogIn
+            SignIn
           </NavLink>
         </div>
       </div>
