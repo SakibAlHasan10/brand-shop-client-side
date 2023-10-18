@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Social from "../../Sheare/SocialResigter/Social";
 
 const SignUp = () => {
   const [errorText, setErrorText] = useState('')
@@ -93,8 +94,11 @@ const SignUp = () => {
               <div className="form-control mt-2">
                 <button type="submit" className="btn btn-primary">Sign Up</button>
               </div>
-            <p className="text-center mt-4">Already a Member? <Link to={'/login'}>Login</Link></p>
             </form>
+            <div className="px-8 pb-8">
+            <Social></Social>
+            <p className="text-center mt-6">Already a Member? <Link to={'/login'} className="text-orange-400 hover:text-green-600">Login</Link></p>
+            </div>
           </div>
         </div>
       </div>
