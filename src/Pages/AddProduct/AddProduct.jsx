@@ -6,7 +6,10 @@ const AddProduct = () => {
         const brand = form.brand.value;
         const price = form.price.value;
         const category = form.category.value;
-        console.log(name, brand, price, category)
+        const rating = form.rating.value;
+        const description = form.description.value;
+        const photo = form.photo.value;
+        console.log(name, brand, price, category, rating, description, photo)
     }
   return (
     <div className="max-w-screen-lg mx-auto mb-10 px-8">
@@ -33,8 +36,11 @@ const AddProduct = () => {
               <option disabled selected>
                 Apple
               </option>
-              <option>Han Solo</option>
-              <option>Greedo</option>
+              <option>Samsung</option>
+              <option>Sony</option>
+              <option>Sony</option>
+              <option>Sony</option>
+              <option>Sony</option>
             </select>
           </div>
         </div>
@@ -67,27 +73,27 @@ const AddProduct = () => {
         <div className="flex gap-6 justify-between">
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">Product Price</span>
+              <span className="label-text">Rating</span>
             </label>
             <input
               type="text"
-              name="price"
-              placeholder="product name"
+              name="rating"
+              placeholder="product rating"
               className="input w-full  input-bordered"
               required
             />
           </div>
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">Category</span>
+              <span className="label-text">Description</span>
             </label>
-            <select className="select select-bordered w-full" name="category">
-              <option disabled selected>
-                Phone
-              </option>
-              <option>Laptop</option>
-              <option>MacBook</option>
-            </select>
+            <input
+              type="text"
+              name="description"
+              placeholder="short description"
+              className="input w-full  input-bordered"
+              required
+            />
           </div>
         </div>
         <div className="form-control w-full">
@@ -102,7 +108,7 @@ const AddProduct = () => {
               required
             />
           </div>
-        <button type="submit" className="btn w-full mt-5 btn-outline">Default</button>
+        <button type="submit" className="btn w-full mt-5 btn-outline">Add Product</button>
       </form>
     </div>
   );
