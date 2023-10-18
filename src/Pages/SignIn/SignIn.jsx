@@ -1,20 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Social from "../../Sheare/SocialResigter/Social";
-
+import useApi from "../../AuthApi/useApi";
+import {ToastContainer,toast} from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 const SignIn = () => {
     const [errorText, setErrorText] = useState('')
+    const {signInWithEmail} = useApi()
   const handleSignIn =(e)=>{
     e.preventDefault()
     setErrorText('')
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    
-    console.log(email, password)
+    signInWithEmail(email, password)
+    .then(res=>{
+      toast.success('your login successful', {position: toast.POSITION.TOP_RIGHT})
+      console.log(res.user)
+    })
+    .catch(error=>{
+      console.error(error)
+    })
   }
   return (
     <div>
+      <ToastContainer/>
       <div className="hero min-h-screen">
         <div className="hero-content w-full flex-col">
           <div className="text-center">

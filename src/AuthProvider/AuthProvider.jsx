@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 const auth = getAuth(app)
@@ -26,6 +26,11 @@ const createUserWithEmail =(email, password)=>{
     return createUserWithEmailAndPassword(auth, email, password )
 }
 
+// signin with email
+const signInWithEmail =(email, password)=>{
+    return signInWithEmailAndPassword(auth, email, password)
+}
+
 // state change 
 useEffect(()=>{
     const unSubscribe = onAuthStateChanged(auth, currentUser=>{
@@ -45,6 +50,7 @@ const logOut =()=>{
         createAccountWithGoogle,
         createAccountWithGitHub,
         createUserWithEmail,
+        signInWithEmail,
         logOut,
     }
     return (

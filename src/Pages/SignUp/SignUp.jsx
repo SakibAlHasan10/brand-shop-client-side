@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Social from "../../Sheare/SocialResigter/Social";
 import useApi from "../../AuthApi/useApi";
-
+import {ToastContainer,toast} from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
   const [errorText, setErrorText] = useState('')
   const {createUserWithEmail} = useApi()
@@ -29,6 +30,7 @@ const SignUp = () => {
       createUserWithEmail(email, password)
       .then((res)=>{
         console.log(res.user)
+      toast.success('your signup successful', {position: toast.POSITION.TOP_RIGHT})
       })
       .catch(error=>{
         console.log(error)
@@ -37,6 +39,7 @@ const SignUp = () => {
   }
   return (
     <div>
+      <ToastContainer/>
       <div className="hero min-h-screen">
         <div className="hero-content w-full flex-col">
           <div className="text-center">
