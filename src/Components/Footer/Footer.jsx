@@ -26,7 +26,7 @@ const Footer = () => {
           <a className="link link-hover">History</a><br />
         </div>
         <div className="leading-10">
-          <header className="footer-title mb-5 text-[#ffffff]">Legal</header>
+          <header className="footer-title mb-5 text-[#ffffff]">About Us</header>
           <p className="leading-6">If your question is not answered there, please use one of the contact methods below.</p>
           <div className="flex gap-3 items-center">
             <FaLocationDot className="w-10 h-10 text-3xl rounded-full border-2 p-2 border-[#b0afaf]"/>
