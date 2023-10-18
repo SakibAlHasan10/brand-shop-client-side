@@ -2,7 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 
 const Navbar = () => {
-  const { user } = useApi();
+  const { user, logOut } = useApi();
+  const handleLogOut =()=>{
+    logOut()
+    .then(()=>{
+      alert('LogOut successfully')
+    })
+    .catch(error=>console.error(error))
+  }
   console.log(user);
   return (
     <div className="bg-base-100 shadow-md">
@@ -126,8 +133,8 @@ const Navbar = () => {
                   <li>
                     <a>Settings</a>
                   </li>
-                  <li>
-                    <a>Logout</a>
+                  <li className="text-red-600 font-semibold">
+                    <button onClick={handleLogOut}>Logout</button>
                   </li>
                 </ul>
               </div>

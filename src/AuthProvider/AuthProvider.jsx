@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
-import { GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 const auth = getAuth(app)
@@ -31,10 +31,15 @@ useEffect(()=>{
     }
 },[])
 
+// signOut 
+const logOut =()=>{
+    return signOut(auth)
+}
     const authInfo ={
         user,
         createAccountWithGoogle,
         createAccountWithGitHub,
+        logOut,
     }
     return (
         <AuthContext.Provider value={authInfo}>
