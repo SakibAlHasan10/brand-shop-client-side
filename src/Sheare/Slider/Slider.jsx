@@ -6,7 +6,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 const Slider = ({ children }) => {
-  console.log(children, 'kkkkkk')
   return (
     <div>
       <Swiper
@@ -17,8 +16,8 @@ const Slider = ({ children }) => {
         height={50}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
       >
         {/* <SwiperSlide>
           <img

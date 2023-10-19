@@ -1,6 +1,6 @@
 [
     {
-    "name": "apple",
+    "name": "Apple",
     "img":"https://i.ibb.co/bRvPBCx/apple.png"
     },
     {
@@ -12,15 +12,15 @@
     "img":"https://i.ibb.co/09T7DDz/OnePlus.png"
     },
     {
-    "name": "intel",
+    "name": "Intel",
     "img":"https://i.ibb.co/mtwb0zY/intel.png"
     },
     {
-    "name": "google",
+    "name": "Google",
     "img":"https://i.ibb.co/wBnThpC/google.png"
     },
     {
-    "name": "sony",
+    "name": "Sony",
     "img":"https://i.ibb.co/McG6x5v/sony.png"
     }
   ]
