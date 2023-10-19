@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import Social from "../../Sheare/SocialResigter/Social";
 import useApi from "../../AuthApi/useApi";
 import {ToastContainer,toast} from 'react-toastify'; 
+import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
+
 const SignIn = () => {
     const [errorText, setErrorText] = useState('')
+  const [visible, setVisible] = useState(true)
     const {signInWithEmail} = useApi()
   const handleSignIn =(e)=>{
     e.preventDefault()
@@ -48,13 +51,20 @@ const SignIn = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
+                <div className="relative">
                 <input
-                  type="password"
+                  type={`${visible? 'password' : 'text'}`}
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input w-full input-bordered"
                   required
                 />
+                <span onClick={()=>setVisible(!visible)} className={`absolute -ml-8 pt-4`}>
+                  {
+                    visible? <FaEyeSlash/> : <FaEye/>
+                  }
+                  </span>
+                </div>
                 
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
@@ -64,7 +74,7 @@ const SignIn = () => {
                 <p className="text-red-600 text-lg mt-2 font-semibold">{errorText}</p>
               </div>
               <div className="form-control mt-2">
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-outline">Login</button>
               </div>
             
             </form>

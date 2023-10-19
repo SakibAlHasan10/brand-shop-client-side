@@ -4,8 +4,12 @@ import Social from "../../Sheare/SocialResigter/Social";
 import useApi from "../../AuthApi/useApi";
 import {ToastContainer,toast} from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
+import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { updateProfile } from "firebase/auth";
+
+
 const SignUp = () => {
+  const [visible, setVisible] = useState(true)
   const [errorText, setErrorText] = useState('')
   const {createUserWithEmail} = useApi()
   const handleSignUp =(e)=>{
@@ -98,13 +102,20 @@ const SignUp = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
+                <div className="relative">
                 <input
-                  type="password"
+                  type={`${visible? 'password' : 'text'}`}
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input w-full input-bordered"
                   required
                 />
+                <span onClick={()=>setVisible(!visible)} className={`absolute -ml-8 pt-4`}>
+                  {
+                    visible? <FaEyeSlash/> : <FaEye/>
+                  }
+                  </span>
+                </div>
                 
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
@@ -114,7 +125,7 @@ const SignUp = () => {
                 <p className="text-red-600 text-lg mt-2 font-semibold">{errorText}</p>
               </div>
               <div className="form-control mt-2">
-                <button type="submit" className="btn btn-primary">Sign Up</button>
+                <button type="submit" className="btn btn-outline">Sign Up</button>
               </div>
             </form>
             <div className="px-8 pb-8">
