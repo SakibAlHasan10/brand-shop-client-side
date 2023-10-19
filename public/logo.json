@@ -1,0 +1,26 @@
+[
+    {
+    "name": "apple",
+    "img":"https://i.ibb.co/bRvPBCx/apple.png"
+    },
+    {
+    "name": "Samsung",
+    "img":"https://i.ibb.co/ZKRDhbT/Samsung.png"
+    },
+    {
+    "name": "OnePlus",
+    "img":"https://i.ibb.co/09T7DDz/OnePlus.png"
+    },
+    {
+    "name": "intel",
+    "img":"https://i.ibb.co/mtwb0zY/intel.png"
+    },
+    {
+    "name": "google",
+    "img":"https://i.ibb.co/wBnThpC/google.png"
+    },
+    {
+    "name": "sony",
+    "img":"https://i.ibb.co/McG6x5v/sony.png"
+    }
+  ]

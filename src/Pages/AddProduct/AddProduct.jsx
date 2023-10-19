@@ -67,10 +67,10 @@ const AddProduct = () => {
             >
               <option>Apple</option>
               <option>Samsung</option>
+              <option>Google</option>
               <option>Sony</option>
-              <option>Sony</option>
-              <option>Sony</option>
-              <option>Sony</option>
+              <option>Intel</option>
+              <option>OnePlus</option>
             </select>
           </div>
         </div>
@@ -98,7 +98,8 @@ const AddProduct = () => {
             >
               <option>Phone</option>
               <option>Laptop</option>
-              <option>MacBook</option>
+              <option>Tablet</option>
+              <option>Headphone</option>
             </select>
           </div>
         </div>
