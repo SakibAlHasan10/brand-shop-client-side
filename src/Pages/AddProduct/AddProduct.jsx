@@ -43,7 +43,7 @@ const AddProduct = () => {
       <ToastContainer />
       <h2 className="text-3xl font-semibold mt-14 mb-10">Add Product</h2>
       <form onSubmit={handleAddProduct} className="border p-5 rounded-lg">
-        <div className="flex gap-6 justify-between">
+        <div className="md:flex gap-6 justify-between">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Product Name</span>
@@ -74,7 +74,7 @@ const AddProduct = () => {
             </select>
           </div>
         </div>
-        <div className="flex gap-6 justify-between">
+        <div className="md:flex gap-6 justify-between">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Product Price</span>
@@ -103,7 +103,7 @@ const AddProduct = () => {
             </select>
           </div>
         </div>
-        <div className="flex gap-6 justify-between">
+        <div className="md:flex gap-6 justify-between">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Rating</span>

@@ -12,7 +12,7 @@ const Logo = () => {
   }, []);
   return (
     <div>
-      <div className="grid lg:grid-cols-3 mb-5 gap-3 rounded-lg bg-slate-300 max-w-screen-xl mx-auto ">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 mb-5 gap-3 rounded-lg bg-slate-300 max-w-screen-xl mx-auto ">
         {brandLogo?.map((brand, idx) => (
           <Link to={`/brand/${brand.name}`}
             key={idx}

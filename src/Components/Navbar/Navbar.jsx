@@ -38,7 +38,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
                 <NavLink
@@ -52,7 +52,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to={`/add_product`}
+                  to={`/add-product`}
                   className={`${({ isActive, isPending }) =>
                     isActive ? "active" : isPending ? "pending" : ""}
             `}
@@ -62,7 +62,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to={`/my_cart`}
+                  to={`/my-cart`}
                   className={`${({ isActive, isPending }) =>
                     isActive ? "active" : isPending ? "pending" : ""}
             `}
