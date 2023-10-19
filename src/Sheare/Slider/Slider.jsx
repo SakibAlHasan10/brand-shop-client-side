@@ -1,10 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import PropTypes from 'prop-types'
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-const Slider = () => {
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+const Slider = ({ children }) => {
+  console.log(children, 'kkkkkk')
   return (
     <div>
       <Swiper
@@ -16,16 +18,50 @@ const Slider = () => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
+        onSlideChange={() => console.log("slide change")}
       >
+        {/* <SwiperSlide>
+          <img
+            src={loadedData[2]?.photo}
+            alt=""
+            className="h-[70vh] w-full rounded-lg"
+          />
+        </SwiperSlide>
         <SwiperSlide>
-            <img src="https://kitpro.site/lawncare/wp-content/uploads/sites/193/2023/09/young-woman-gardener-caring-plants-treating-flower-2023-01-31-23-19-44-utc-2.jpg" alt="" className="h-[70vh] w-full rounded-lg" />
-            </SwiperSlide>
+          <img
+            src={loadedData[6]?.photo}
+            alt=""
+            className="h-[70vh] w-full rounded-lg"
+          />
+        </SwiperSlide>
         <SwiperSlide>
-            <img src="https://kitpro.site/lawncare/wp-content/uploads/sites/193/2023/09/young-woman-gardener-caring-plants-treating-flower-2023-01-31-23-19-44-utc-1.jpg" alt="" className="h-[70vh] w-full rounded-lg"/></SwiperSlide>
+          <img
+            src={loadedData[12]?.photo}
+            alt=""
+            className="h-[70vh] w-full rounded-lg"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={loadedData[9]?.photo}
+            alt=""
+            className="h-[70vh] w-full rounded-lg"
+          />
+        </SwiperSlide> */}
+        {
+          children?.slice(0,3).map(sl =><SwiperSlide key={sl._id}>
+            <img
+              src={sl?.photo}
+              alt=""
+              className="h-[70vh] w-full rounded-lg"
+            />
+          </SwiperSlide> )
+        }
       </Swiper>
     </div>
   );
 };
-
+Slider.propTypes={
+  children: PropTypes.array
+}
 export default Slider;

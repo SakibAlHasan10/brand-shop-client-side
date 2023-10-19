@@ -12,6 +12,7 @@ const routers = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        loader: ()=>fetch('http://localhost:5000/products'),
         errorElement:<ErrorPage/>,
         children:[
             {
