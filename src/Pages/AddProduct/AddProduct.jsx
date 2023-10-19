@@ -9,7 +9,19 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const description = form.description.value;
         const photo = form.photo.value;
-        console.log(name, brand, price, category, rating, description, photo)
+        const product ={name, brand, price, category, rating, description, photo}
+        fetch('http://localhost:5000/products',{
+          method:"POST",
+          headers: {
+            "content-type": 'application/json'
+          },
+          body: JSON.stringify(product)
+        })
+        .then(res =>res.json())
+        .then(data=>{
+          console.log(data)
+        })
+        // console.log(name, brand, price, category, rating, description, photo)
     }
   return (
     <div className="max-w-screen-lg mx-auto mb-10 px-8">
