@@ -29,7 +29,7 @@ const FourProduct = ({ cardInfo }) => {
             <Link to={`/details/${_id}`} className="btn flex-1 w-full btn-outline rounded-3xl">
               Details
             </Link>
-            <Link className="btn flex-1 lg:mt-0 mt-5  w-full btn-outline rounded-3xl">
+            <Link to={`/update/${_id}`} className="btn flex-1 lg:mt-0 mt-5  w-full btn-outline rounded-3xl">
               Update
             </Link>
           </div>

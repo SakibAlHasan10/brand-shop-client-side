@@ -9,6 +9,7 @@ import MyCart from "../Pages/MyCart/MyCart";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SingleBrand from "../Pages/SingleBrand/SingleBrand";
 import Details from "../Pages/Details/Details";
+import Update from "../Pages/Update/Update";
 
 const routers = createBrowserRouter([
     {
@@ -45,6 +46,11 @@ const routers = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <Details></Details>,
+                loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
                 loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
             },
         ]
