@@ -1,12 +1,9 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData,} from "react-router-dom";
 import Slider from "../../Sheare/Slider/Slider";
 import FourProduct from "../../Components/FourProduct/FourProduct";
 
 const SingleBrand = () => {
   const loadProduct = useLoaderData();
-  const { id } = useParams();
-  console.log(id);
-  console.log(loadProduct);
   return (
     <div className="max-w-screen-xl mx-auto px-8 mt-5">
       <Slider>{loadProduct}</Slider>
