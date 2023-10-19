@@ -32,8 +32,8 @@ const AddProduct = () => {
             <label className="label">
               <span className="label-text">Brand Name</span>
             </label>
-            <select className="select select-bordered w-full" name="brand">
-              <option disabled selected>
+            <select className="select select-bordered w-full" name="brand" defaultValue="default">
+              <option >
                 Apple
               </option>
               <option>Samsung</option>
@@ -61,8 +61,8 @@ const AddProduct = () => {
             <label className="label">
               <span className="label-text">Category</span>
             </label>
-            <select className="select select-bordered w-full" name="category">
-              <option disabled selected>
+            <select className="select select-bordered w-full" name="category" defaultValue="default">
+              <option >
                 Phone
               </option>
               <option>Laptop</option>
