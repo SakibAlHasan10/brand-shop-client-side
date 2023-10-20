@@ -13,15 +13,13 @@ const MyCart = () => {
         setMyCart(data.myCart);
       });
   }, [email]);
-//   console.log(myCart);
+  //   console.log(myCart);
   return (
     <div className="max-w-screen-xl mb-14 mt-10 mx-auto px-8 ">
-        <h2 className="text-4xl font-bold mb-8">My Cart</h2>
+      <h2 className="text-4xl font-bold mb-8">My Cart</h2>
       <div className=" grid md:grid-cols-1 lg:grid-cols-2 gap-5">
         {myCart?.map((cart, idx) => (
-          <SubCut key={idx} 
-          setMyCart={setMyCart}
-          cart={cart}></SubCut>
+          <SubCut key={idx} setMyCart={setMyCart} cart={cart}></SubCut>
         ))}
       </div>
     </div>

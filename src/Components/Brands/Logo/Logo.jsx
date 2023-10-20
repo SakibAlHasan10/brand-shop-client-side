@@ -14,7 +14,8 @@ const Logo = () => {
     <div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 mb-5 gap-3 rounded-lg bg-slate-300 max-w-screen-xl mx-auto ">
         {brandLogo?.map((brand, idx) => (
-          <Link to={`/brand/${brand.name}`}
+          <Link
+            to={`/brand/${brand.name}`}
             key={idx}
             className="py-5 w-full flex h-48 items-center justify-center gap-3 hover:text-white hover:bg-[#353535] hover:rounded-lg uppercase font-semibold text-xl"
           >

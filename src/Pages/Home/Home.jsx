@@ -4,14 +4,14 @@ import SectionOne from "../../Components/SectionOne";
 import SectionTwo from "../../Components/SectionTwo";
 
 const Home = () => {
-    return (
-        <div className="max-w-screen-xl mx-auto px-8">
-            <Banner></Banner>
-            <SectionOne></SectionOne>
-            <Brands></Brands>
-            <SectionTwo></SectionTwo>
-        </div>
-    );
+  return (
+    <div className="max-w-screen-xl mx-auto px-8">
+      <Banner></Banner>
+      <SectionOne></SectionOne>
+      <Brands></Brands>
+      <SectionTwo></SectionTwo>
+    </div>
+  );
 };
 
 export default Home;

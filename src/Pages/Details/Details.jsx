@@ -11,7 +11,7 @@ const Details = () => {
     fetch(`http://localhost:5000/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
-        (data?.myCart? setMyCart(data?.myCart): setMyCart([]));
+        data?.myCart ? setMyCart(data?.myCart) : setMyCart([]);
       });
   }, [email]);
   const { name, brand, price, category, description, photo } = loadProduct;

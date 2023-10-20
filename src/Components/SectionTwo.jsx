@@ -14,7 +14,7 @@ const SectionTwo = () => {
       </div>
       <div className="lg:w-1/3 mx-auto ">
         <div className="mt-8 lg:mt-0 w-80">
-      <img src={loadedData[9].photo} alt="" className="" />
+          <img src={loadedData[9].photo} alt="" className="" />
         </div>
       </div>
     </div>

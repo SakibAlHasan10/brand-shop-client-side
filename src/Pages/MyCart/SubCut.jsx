@@ -4,10 +4,10 @@ import "react-toastify/dist/ReactToastify.css";
 import useApi from "../../AuthApi/useApi";
 import { useEffect, useState } from "react";
 
-const SubCut = ({ cart, setMyCart:displayCart }) => {
+const SubCut = ({ cart, setMyCart: displayCart }) => {
   const { user } = useApi();
   const email = user?.email;
-//   console.log(email);
+  //   console.log(email);
   const { _id, name, brand, price, category, photo } = cart;
   const [myCart, setMyCart] = useState([]);
   useEffect(() => {
@@ -17,7 +17,7 @@ const SubCut = ({ cart, setMyCart:displayCart }) => {
         setMyCart(data?.myCart);
       });
   }, [email]);
-//   console.log(myCart);
+  //   console.log(myCart);
   const handleCartRemove = () => {
     // console.log(myCart);
     const findProduct = myCart?.filter((prod) => prod._id !== _id);
@@ -41,8 +41,8 @@ const SubCut = ({ cart, setMyCart:displayCart }) => {
               position: toast.POSITION.TOP_RIGHT,
             });
             const filterCart = myCart?.filter((prod) => prod._id !== _id);
-            setMyCart(filterCart)
-            displayCart(filterCart)
+            setMyCart(filterCart);
+            displayCart(filterCart);
           }
         });
     }
@@ -78,5 +78,6 @@ const SubCut = ({ cart, setMyCart:displayCart }) => {
 };
 SubCut.propTypes = {
   cart: PropTypes.object,
+  setMyCart: PropTypes.array,
 };
 export default SubCut;

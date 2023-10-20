@@ -3,7 +3,7 @@ import Slider from "../../Sheare/Slider/Slider";
 import { DataContext } from "../../Pages/RootPage/Root";
 
 const Banner = () => {
-  const {loadedData} = useContext(DataContext)
+  const { loadedData } = useContext(DataContext);
   // console.log(loadedData)
   // const sliderImg = loadedData?.map(sl =>sl.photo )
   return (
@@ -13,12 +13,10 @@ const Banner = () => {
           <Slider>{loadedData}</Slider>
         </div>
         <div className={`hidden lg:flex w-1/4 relative rounded-lg`}>
-            
           <img
             src={loadedData[6]?.photo}
             alt=""
             className={` h-[70vh] rounded-lg`}
-
           />
           <div className="absolute p-5 text-3xl font-semibold text-center hover:text-red-400 text-white">
             <h2>{loadedData[6]?.name}</h2>

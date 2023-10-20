@@ -12,50 +12,69 @@ import Details from "../Pages/Details/Details";
 import Update from "../Pages/Update/Update";
 
 const routers = createBrowserRouter([
-    {
-        path: '/',
-        element: <Root></Root>,
-        loader: ()=>fetch('http://localhost:5000/products'),
-        errorElement:<ErrorPage/>,
-        children:[
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/sign-up',
-                element: <SignUp></SignUp>
-            },
-            {
-                path: '/login',
-                element: <SignIn></SignIn>
-            },
-            {
-                path: '/add-product',
-                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
-            },
-            {
-                path: `/my-cart`,
-                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                // loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`),
-            },
-            {
-                path: '/brand/:id',
-                element: <SingleBrand></SingleBrand>,
-                loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`),
-            },
-            {
-                path: '/details/:id',
-                element: <PrivateRoute><Details></Details></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
-            },
-            {
-                path: '/update/:id',
-                element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
-            },
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Root></Root>,
+    loader: () => fetch("http://localhost:5000/products"),
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/login",
+        element: <SignIn></SignIn>,
+      },
+      {
+        path: "/add-product",
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `/my-cart`,
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
+        // loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`),
+      },
+      {
+        path: "/brand/:id",
+        element: <SingleBrand></SingleBrand>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/details/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/details/${params.id}`),
+      },
+    ],
+  },
+]);
 
 export default routers;
