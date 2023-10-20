@@ -53,7 +53,7 @@ const SignUp = () => {
 
             // database  for user
 
-            fetch("http://localhost:5000/users", {
+            fetch("https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

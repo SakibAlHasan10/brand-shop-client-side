@@ -20,7 +20,7 @@ const AddProduct = () => {
       description,
       photo,
     };
-    fetch("http://localhost:5000/products", {
+    fetch("https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -15,7 +15,7 @@ const routers = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
-        loader: ()=>fetch('http://localhost:5000/products'),
+        loader: ()=>fetch('https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/products'),
         errorElement:<ErrorPage/>,
         children:[
             {
@@ -37,22 +37,22 @@ const routers = createBrowserRouter([
             {
                 path: `/my-cart`,
                 element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                // loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`),
+                // loader:({params})=>fetch(`https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/users/${params.id}`),
             },
             {
                 path: '/brand/:id',
                 element: <SingleBrand></SingleBrand>,
-                loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`),
+                loader:({params})=>fetch(`https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/products/${params.id}`),
             },
             {
                 path: '/details/:id',
                 element: <PrivateRoute><Details></Details></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+                loader:({params})=>fetch(`https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/details/${params.id}`),
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+                loader:({params})=>fetch(`https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/details/${params.id}`),
             },
         ]
     }

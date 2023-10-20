@@ -5,8 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-const Slider = ({ children }) => {
-  // console.log(children)
+const Slider = ({children}) => {
   return (
     <div>
       <div className="relative">
@@ -21,7 +20,7 @@ const Slider = ({ children }) => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        {children?.slice(0, 3).map((sl) => (
+        {children?.slice(0,3).map((sl) => (
           <SwiperSlide key={sl._id}>
             <img
               src={sl?.photo}

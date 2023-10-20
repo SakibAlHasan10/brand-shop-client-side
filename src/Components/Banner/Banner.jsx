@@ -15,7 +15,7 @@ const Banner = () => {
         <div className={`hidden lg:flex w-1/4 rounded-lg`}>
             
           <img
-            src={loadedData[6].photo}
+            src={loadedData[6]?.photo}
             alt=""
             className={` h-[70vh] rounded-lg`}
           />
