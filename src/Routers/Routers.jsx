@@ -15,7 +15,7 @@ const routers = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    loader: () => fetch("http://localhost:5000/products"),
+    loader: () => fetch("https://tidal-wave-sever.vercel.app/products"),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -45,13 +45,13 @@ const routers = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        // loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`),
+        // loader:({params})=>fetch(`https://tidal-wave-sever.vercel.app/users/${params.id}`),
       },
       {
         path: "/brand/:id",
         element: <SingleBrand></SingleBrand>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(`https://tidal-wave-sever.vercel.app/products/${params.id}`),
       },
       {
         path: "/details/:id",
@@ -61,7 +61,7 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(`https://tidal-wave-sever.vercel.app/details/${params.id}`),
       },
       {
         path: "/update/:id",
@@ -71,7 +71,7 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(`https://tidal-wave-sever.vercel.app/details/${params.id}`),
       },
     ],
   },

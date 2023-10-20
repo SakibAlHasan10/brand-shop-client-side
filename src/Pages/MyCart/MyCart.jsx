@@ -8,7 +8,7 @@ const MyCart = () => {
   const [myCart, setMyCart] = useState([]);
   const email = user.email;
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${email}`)
+    fetch(`https://tidal-wave-sever.vercel.app/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyCart(data.myCart);

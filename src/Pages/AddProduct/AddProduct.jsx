@@ -23,7 +23,7 @@ const AddProduct = () => {
       description,
       photo,
     };
-    fetch("http://localhost:5000/products", {
+    fetch("https://tidal-wave-sever.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
