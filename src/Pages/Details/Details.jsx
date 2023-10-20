@@ -8,7 +8,7 @@ const Details = () => {
   const [myCart, setMyCart] = useState([]);
   const email = user.email;
   useEffect(() => {
-    fetch(`https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/users/${email}`)
+    fetch(`http://localhost:5000/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
         (data?.myCart? setMyCart(data?.myCart): setMyCart([]));
@@ -25,7 +25,7 @@ const Details = () => {
         email,
         allCart,
       };
-      fetch(`https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/users`, {
+      fetch(`http://localhost:5000/users`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

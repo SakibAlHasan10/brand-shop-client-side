@@ -16,7 +16,7 @@ const Logo = () => {
         {brandLogo?.map((brand, idx) => (
           <Link to={`/brand/${brand.name}`}
             key={idx}
-            className="py-5 w-full flex items-center justify-center gap-3 hover:text-white hover:bg-[#353535] hover:rounded-lg uppercase font-semibold text-xl"
+            className="py-5 w-full flex h-48 items-center justify-center gap-3 hover:text-white hover:bg-[#353535] hover:rounded-lg uppercase font-semibold text-xl"
           >
             <img src={brand?.img} alt="" className="w-40 h-auto " />
             <span>{brand?.name}</span>

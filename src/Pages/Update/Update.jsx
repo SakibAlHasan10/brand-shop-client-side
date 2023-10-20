@@ -25,7 +25,7 @@ const Update = () => {
       description,
       photo,
     };
-    fetch(`https://tidal-wave-sever-lps0umxy2-sakib-al-hasans-projects.vercel.app/products/${_id}`, {
+    fetch(`http://localhost:5000/products/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
