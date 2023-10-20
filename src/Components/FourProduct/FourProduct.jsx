@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Rating from "react-rating";
 const FourProduct = ({ cardInfo }) => {
-  console.log(cardInfo);
+//   console.log(cardInfo);
   const {_id, name, brand, price, category, rating, photo } = cardInfo;
   return (
     <div className="text-left">

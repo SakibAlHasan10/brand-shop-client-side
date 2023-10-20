@@ -13,7 +13,7 @@ const Navbar = () => {
       })
       .catch((error) => console.error(error));
   };
-  console.log(user?.photoURL);
+  // console.log(user?.photoURL);
   return (
     <div className="bg-base-100 shadow-md">
       <ToastContainer />

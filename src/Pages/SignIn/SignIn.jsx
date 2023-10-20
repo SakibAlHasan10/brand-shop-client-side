@@ -22,7 +22,10 @@ const SignIn = () => {
       console.log(res.user)
     })
     .catch(error=>{
-      console.error(error)
+      if(error){
+    setErrorText('invalid login information')
+      }
+      // console.error(error)
     })
   }
   return (

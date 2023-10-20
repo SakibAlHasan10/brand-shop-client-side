@@ -4,7 +4,7 @@ const Details = () => {
   const loadProduct = useLoaderData();
   const { name, brand, price, category, description, photo } =
     loadProduct;
-  console.log(loadProduct);
+//   console.log(loadProduct);
   return (
     <div className="max-w-screen-xl mx-auto px-8 ">
       <div className="text-center justify-center mb-8 flex mt-10 font-semibold text-xl ">
