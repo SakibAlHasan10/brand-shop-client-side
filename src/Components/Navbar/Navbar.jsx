@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   const { user, logOut } = useApi();
+  // console.log(user.email)
   const navigate =useNavigate()
   const handleLogOut = () => {
     logOut()

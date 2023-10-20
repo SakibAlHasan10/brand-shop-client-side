@@ -28,7 +28,7 @@ const Slider = ({ children }) => {
               alt=""
               className="h-[70vh] z-0 w-full rounded-lg"
             />
-            <div className=" bg-[#ffffff62] p-6 rounded-xl absolute top-16 right-20 text-black  z-20">
+            <div className=" bg-[#ffffff62] p-6 rounded-xl absolute top-16 right-10 md:right-20 text-black  z-20">
               <p className="text-3xl text-black font-bold">{sl.brand}</p>
               <h2 className="text-5xl my-6 text-red-600 font-bold">{sl.name}</h2>
               <p className="text-base ">{sl.description}</p>

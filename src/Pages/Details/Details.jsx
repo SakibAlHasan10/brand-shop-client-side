@@ -1,24 +1,31 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
-import { DataContext } from "../RootPage/Root";
 const Details = () => {
   const loadProduct = useLoaderData();
   const { user } = useApi();
-  const {userCart} = useContext(DataContext)
-  const [myCart, setMyCart] = useState(userCart);
+  const [myCart, setMyCart] = useState([]);
   const email = user.email;
-  
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyCart(data.myCart);
+      });
+  }, [email]);
   const { name, brand, price, category, description, photo } = loadProduct;
   console.log(myCart);
-  const updateCart = {
-    email,
-    myCart,
-  };
-  const handleArray =()=>{
-    fetch(`http://localhost:5000/users`, {
-        method: "PATCH",
+  const handleMyCart = () => {
+    const findProduct = myCart?.find((prod) => prod._id === loadProduct._id);
+    if (!findProduct) {
+      const allCart = [...myCart, loadProduct];
+      const updateCart = {
+        email,
+        allCart,
+      };
+      fetch(`http://localhost:5000/users`, {
+        method: "PUT",
         headers: {
           "content-type": "application/json",
         },
@@ -32,15 +39,8 @@ const Details = () => {
             });
           }
         });
-        // console.log(data);
-  }
-  const handleMyCart = () => {
-    const findProduct = myCart?.find((prod) => prod._id === loadProduct._id);
-    if (!findProduct) {
-      setMyCart([...myCart, loadProduct]);
-      handleArray()
+      // console.log(updateCart);
     }
-    // console.log(myCart, loadProduct);
   };
   return (
     <div className="max-w-screen-xl mx-auto px-8 ">
