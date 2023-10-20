@@ -13,7 +13,7 @@ const MyCart = () => {
         setMyCart(data.myCart);
       });
   }, [email]);
-  console.log(myCart);
+//   console.log(myCart);
   return (
     <div className="max-w-screen-xl mb-14 mt-10 mx-auto px-8 ">
         <h2 className="text-4xl font-bold mb-8">My Cart</h2>

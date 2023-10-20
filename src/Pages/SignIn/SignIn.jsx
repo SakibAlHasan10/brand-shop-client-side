@@ -19,10 +19,10 @@ const SignIn = () => {
     const password = form.password.value;
     signInWithEmail(email, password)
       .then((res) => {
-        toast.success("your login successful", {
+        res && toast.success("your login successful", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        console.log(res.user);
+        // console.log(res.user);
         navigate("/");
       })
       .catch((error) => {

@@ -11,12 +11,13 @@ const Details = () => {
     fetch(`http://localhost:5000/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
-        setMyCart(data.myCart);
+        (data?.myCart? setMyCart(data?.myCart): setMyCart([]));
       });
   }, [email]);
   const { name, brand, price, category, description, photo } = loadProduct;
-  console.log(myCart);
+  // console.log(myCart);
   const handleMyCart = () => {
+    // console.log(myCart)
     const findProduct = myCart?.find((prod) => prod._id === loadProduct._id);
     if (!findProduct) {
       const allCart = [...myCart, loadProduct];

@@ -26,7 +26,7 @@ const SignUp = () => {
       photo,
       password,
     };
-    console.log(userData);
+    // console.log(userData);
     if (password.length < 6) {
       setErrorText("Your password must be at least 6 characters");
       return;
@@ -68,7 +68,7 @@ const SignUp = () => {
                   });
                 }
                 navigate("/");
-                console.log(data);
+                // console.log(data);
               });
           })
           .catch((error) => {

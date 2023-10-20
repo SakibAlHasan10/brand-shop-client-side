@@ -1,7 +1,51 @@
+import PropTypes from "prop-types";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useApi from "../../AuthApi/useApi";
+import { useEffect, useState } from "react";
 const SubCut = ({ cart }) => {
-  const { name, brand, price, category, rating, description, photo } = cart;
+  const { user } = useApi();
+  const email = user?.email;
+//   console.log(email);
+  const { _id, name, brand, price, category, photo } = cart;
+  const [myCart, setMyCart] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyCart(data?.myCart);
+      });
+  }, [email]);
+//   console.log(myCart);
+  const handleCartRemove = () => {
+    console.log(myCart);
+    const findProduct = myCart?.filter((prod) => prod._id !== _id);
+    if (findProduct) {
+      const allCart = findProduct;
+      const updateCart = {
+        email,
+        allCart,
+      };
+      fetch(`http://localhost:5000/users`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateCart),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.matchedCount) {
+            toast.success("your cart remove successful", {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        });
+    }
+  };
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <div className="flex gap-6 mb-5 py-3 px-5 rounded-xl items-center shadow-md">
         <img src={photo} alt="" className="w-32 h-32 rounded-xl" />
         <div className="w-full flex-1">
@@ -14,9 +58,13 @@ const SubCut = ({ cart }) => {
               </p>
             </div>
             <div className="flex justify-between flex-1 items-center">
-            <p className="text-red-600 font-semibold">${price}.00</p>
-            <button className="btn btn-outline font-bold text-xl">X</button>
-
+              <p className="text-red-600 font-semibold">${price}.00</p>
+              <button
+                onClick={handleCartRemove}
+                className="btn btn-outline font-bold text-xl"
+              >
+                X
+              </button>
             </div>
           </div>
         </div>
@@ -24,5 +72,7 @@ const SubCut = ({ cart }) => {
     </div>
   );
 };
-
+SubCut.propTypes = {
+  cart: PropTypes.object,
+};
 export default SubCut;
