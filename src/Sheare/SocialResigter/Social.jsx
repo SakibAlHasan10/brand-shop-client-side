@@ -1,12 +1,14 @@
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import useApi from "../../AuthApi/useApi";
+import { useNavigate } from "react-router-dom";
 const Social = () => {
   const {createAccountWithGoogle, createAccountWithGitHub} = useApi()
-
+  const navigate = useNavigate()
   const handleLoginWithGoogle =()=>{
     createAccountWithGoogle()
     .then(result =>{
       console.log(result.user)
+      navigate('/')
     })
     .catch(error=>{
       console.error(error)
@@ -16,6 +18,7 @@ const Social = () => {
     createAccountWithGitHub()
     .then(result =>{
       console.log(result.user)
+      navigate('/')
     })
     .catch(error=>{
       console.error(error)

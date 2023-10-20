@@ -1,15 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   const { user, logOut } = useApi();
+  const navigate =useNavigate()
   const handleLogOut = () => {
     logOut()
       .then(() => {
         toast.success("logout successful", {
           position: toast.POSITION.TOP_RIGHT,
         });
+        navigate('/')
       })
       .catch((error) => console.error(error));
   };

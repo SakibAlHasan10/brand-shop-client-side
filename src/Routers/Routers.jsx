@@ -36,7 +36,8 @@ const routers = createBrowserRouter([
             },
             {
                 path: '/my-cart',
-                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`),
             },
             {
                 path: '/brand/:id',
@@ -50,7 +51,7 @@ const routers = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                element: <Update></Update>,
+                element: <PrivateRoute><Update></Update></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
             },
         ]

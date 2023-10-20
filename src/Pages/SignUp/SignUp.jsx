@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Social from "../../Sheare/SocialResigter/Social";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,6 +11,7 @@ const SignUp = () => {
   const [visible, setVisible] = useState(true);
   const [errorText, setErrorText] = useState("");
   const { createUserWithEmail } = useApi();
+  const navigate = useNavigate();
   const handleSignUp = (e) => {
     e.preventDefault();
     setErrorText("");
@@ -66,6 +67,7 @@ const SignUp = () => {
                     position: toast.POSITION.TOP_RIGHT,
                   });
                 }
+                navigate("/");
                 console.log(data);
               });
           })

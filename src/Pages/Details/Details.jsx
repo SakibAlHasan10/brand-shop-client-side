@@ -1,41 +1,46 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
-
+import { DataContext } from "../RootPage/Root";
 const Details = () => {
   const loadProduct = useLoaderData();
   const { user } = useApi();
-  const [myCart, setMyCart] = useState([]);
-  const { name, brand, price, category, description, photo } = loadProduct;
+  const {userCart} = useContext(DataContext)
+  const [myCart, setMyCart] = useState(userCart);
   const email = user.email;
-  // console.log(user.email, myCart);
+  
+  const { name, brand, price, category, description, photo } = loadProduct;
+  console.log(myCart);
+  const updateCart = {
+    email,
+    myCart,
+  };
+  const handleArray =()=>{
+    fetch(`http://localhost:5000/users`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateCart),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.matchedCount) {
+            toast.success("your cart add successful", {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        });
+        // console.log(data);
+  }
   const handleMyCart = () => {
     const findProduct = myCart?.find((prod) => prod._id === loadProduct._id);
     if (!findProduct) {
       setMyCart([...myCart, loadProduct]);
+      handleArray()
     }
-    const updateCart = {
-      email,
-      myCart,
-    };
-    fetch(`http://localhost:5000/users`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateCart),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.matchedCount) {
-          toast.success("your cart add successful", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
-        // console.log(data);
-      });
-    console.log(myCart, loadProduct);
+    // console.log(myCart, loadProduct);
   };
   return (
     <div className="max-w-screen-xl mx-auto px-8 ">
