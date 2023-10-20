@@ -1,6 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useApi from "../../AuthApi/useApi";
+import { Helmet } from "react-helmet";
 const AddProduct = () => {
   const {theme} = useApi()
   const handleAddProduct = (e) => {
@@ -42,6 +43,9 @@ const AddProduct = () => {
   };
   return (
     <div className="max-w-screen-lg  mx-auto mb-10 px-8">
+      <Helmet>
+      <title>Add product || TidalWave</title>
+      </Helmet>
       <ToastContainer />
       <h2 className={`${theme? 'text-black':'text-white'} text-3xl font-semibold mt-14 mb-10`}>Add Product</h2>
       <form onSubmit={handleAddProduct} className="border text-black p-5 rounded-lg">

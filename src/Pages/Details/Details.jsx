@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 const Details = () => {
   const loadProduct = useLoaderData();
   const { user, theme } = useApi();
@@ -45,6 +46,9 @@ const Details = () => {
   };
   return (
     <div className="max-w-screen-xl mx-auto px-8 ">
+      <Helmet>
+      <title>Details || TidalWave</title>
+      </Helmet>
       <ToastContainer />
       <div className="text-center justify-center mb-8 flex mt-10 font-semibold text-xl ">
         <p>{brand}</p>
