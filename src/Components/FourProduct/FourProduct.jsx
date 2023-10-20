@@ -7,7 +7,7 @@ const FourProduct = ({ cardInfo }) => {
   return (
     <div className="text-left">
       <div className="bg-white p-6 rounded-3xl">
-        <img src={photo} alt="" className="w-full h-80 mx-auto rounded-3xl" />
+        <img src={photo} alt="" className="w-full h-60 lg:h-80 mx-auto rounded-3xl" />
         <div className="mx-auto">
           <div className="text-right flex mt-5 font-semibold text-xl ">
             <p>{brand}</p>

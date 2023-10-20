@@ -19,7 +19,9 @@ const MyCart = () => {
         <h2 className="text-4xl font-bold mb-8">My Cart</h2>
       <div className=" grid md:grid-cols-1 lg:grid-cols-2 gap-5">
         {myCart?.map((cart, idx) => (
-          <SubCut key={idx} cart={cart}></SubCut>
+          <SubCut key={idx} 
+          setMyCart={setMyCart}
+          cart={cart}></SubCut>
         ))}
       </div>
     </div>

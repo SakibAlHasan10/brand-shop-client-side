@@ -3,7 +3,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useApi from "../../AuthApi/useApi";
 import { useEffect, useState } from "react";
-const SubCut = ({ cart }) => {
+
+const SubCut = ({ cart, setMyCart:displayCart }) => {
   const { user } = useApi();
   const email = user?.email;
 //   console.log(email);
@@ -18,7 +19,7 @@ const SubCut = ({ cart }) => {
   }, [email]);
 //   console.log(myCart);
   const handleCartRemove = () => {
-    console.log(myCart);
+    // console.log(myCart);
     const findProduct = myCart?.filter((prod) => prod._id !== _id);
     if (findProduct) {
       const allCart = findProduct;
@@ -39,6 +40,9 @@ const SubCut = ({ cart }) => {
             toast.success("your cart remove successful", {
               position: toast.POSITION.TOP_RIGHT,
             });
+            const filterCart = myCart?.filter((prod) => prod._id !== _id);
+            setMyCart(filterCart)
+            displayCart(filterCart)
           }
         });
     }
@@ -49,7 +53,7 @@ const SubCut = ({ cart }) => {
       <div className="flex gap-6 mb-5 py-3 px-5 rounded-xl items-center shadow-md">
         <img src={photo} alt="" className="w-32 h-32 rounded-xl" />
         <div className="w-full flex-1">
-          <h2 className="text-3xl mb-3 font-semibold ">{name}</h2>
+          <h2 className="text-2xl md:text-3xl mb-3 font-semibold ">{name}</h2>
           <div className="text-left items-center  justify-between md:flex mb-3 font-semibold text-xl ">
             <div className="text-left flex-1  mb-3 flex font-semibold text-xl ">
               <p>{brand}</p>
