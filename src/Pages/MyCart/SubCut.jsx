@@ -5,7 +5,7 @@ import useApi from "../../AuthApi/useApi";
 import { useEffect, useState } from "react";
 
 const SubCut = ({ cart, setMyCart: displayCart }) => {
-  const { user } = useApi();
+  const { user, theme } = useApi();
   const email = user?.email;
   //   console.log(email);
   const { _id, name, brand, price, category, photo } = cart;
@@ -65,7 +65,7 @@ const SubCut = ({ cart, setMyCart: displayCart }) => {
               <p className="text-red-600 font-semibold">${price}.00</p>
               <button
                 onClick={handleCartRemove}
-                className="btn btn-outline font-bold text-xl"
+                className={`${theme? 'text-black':'text-white'} btn btn-outline font-bold text-xl`}
               >
                 X
               </button>

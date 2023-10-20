@@ -1,6 +1,8 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useApi from "../../AuthApi/useApi";
 const AddProduct = () => {
+  const {theme} = useApi()
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -39,10 +41,10 @@ const AddProduct = () => {
     // console.log(name, brand, price, category, rating, description, photo)
   };
   return (
-    <div className="max-w-screen-lg mx-auto mb-10 px-8">
+    <div className="max-w-screen-lg  mx-auto mb-10 px-8">
       <ToastContainer />
-      <h2 className="text-3xl font-semibold mt-14 mb-10">Add Product</h2>
-      <form onSubmit={handleAddProduct} className="border p-5 rounded-lg">
+      <h2 className={`${theme? 'text-black':'text-white'} text-3xl font-semibold mt-14 mb-10`}>Add Product</h2>
+      <form onSubmit={handleAddProduct} className="border text-black p-5 rounded-lg">
         <div className="md:flex gap-6 justify-between">
           <div className="form-control w-full">
             <label className="label">
@@ -141,7 +143,7 @@ const AddProduct = () => {
             required
           />
         </div>
-        <button type="submit" className="btn w-full mt-5 btn-outline">
+        <button type="submit" className={`${theme? 'text-black':'text-white'} btn w-full mt-5 btn-outline`}>
           Add Product
         </button>
       </form>

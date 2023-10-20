@@ -4,7 +4,7 @@ import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
 const Details = () => {
   const loadProduct = useLoaderData();
-  const { user } = useApi();
+  const { user, theme } = useApi();
   const [myCart, setMyCart] = useState([]);
   const email = user.email;
   useEffect(() => {
@@ -58,7 +58,7 @@ const Details = () => {
         className="w-full md:w-11/12 lg:w-10/12 h-[60vh] md:h-[80vh] lg:h[90vh] rounded-xl"
       />
       <div className="">
-        <h2 className="text-3xl mt-8 font-bold text-black">{name}</h2>
+        <h2 className="text-3xl mt-8 font-bold ">{name}</h2>
         <p className="mt-3">{description}</p>
         <p className="text-left mt-3 mb-6 text-red-600 text-xl font-semibold">
           ${price}.00
@@ -67,7 +67,7 @@ const Details = () => {
       <div className="flex justify-center">
         <button
           onClick={handleMyCart}
-          className="btn btn-outline mb-10 w-full md:w-1/2 "
+          className={`${theme? 'text-black':'text-white'} btn btn-outline mb-10 w-full md:w-1/2 `}
         >
           Add to cart
         </button>

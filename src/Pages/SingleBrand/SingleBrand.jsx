@@ -9,7 +9,7 @@ const SingleBrand = () => {
       <Slider>{loadProduct}</Slider>
       <div className="mb-10">
         <div className="grid md:grid-cols-2 gap-10 my-10">
-          {loadProduct?.map((cardInfo) => (
+          {loadProduct?.slice(0,4).map((cardInfo) => (
             <FourProduct key={cardInfo._id} cardInfo={cardInfo}></FourProduct>
           ))}
         </div>
