@@ -37,12 +37,12 @@ const SubCut = ({ cart, setMyCart: displayCart }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.matchedCount) {
-            toast.success("your cart remove successful", {
-              position: toast.POSITION.TOP_RIGHT,
-            });
             const filterCart = myCart?.filter((prod) => prod._id !== _id);
             setMyCart(filterCart);
             displayCart(filterCart);
+            toast.success("your cart remove successful", {
+              position: toast.POSITION.TOP_RIGHT,
+            });
           }
         });
     }
