@@ -6,16 +6,16 @@ const FourProduct = ({ cardInfo }) => {
   const { _id, name, brand, price, category, rating, photo } = cardInfo;
   return (
     <div className="text-left">
-      <div className="bg-white p-6 rounded-3xl">
+      <div className="bg-slate-50 p-6 rounded-3xl">
         <img
           src={photo}
           alt=""
           className="w-full h-60 lg:h-80 mx-auto rounded-3xl"
         />
         <div className="mx-auto">
-          <div className="text-right flex mt-5 font-semibold text-xl ">
-            <p>{brand}</p>
-            <p className="border-l-2 border-dashed border-red-600 ml-2 pl-2">
+          <div className="text-right text-black  flex mt-5 font-semibold text-xl ">
+            <p className="text-black">{brand}</p>
+            <p className="border-l-2 text-black  border-dashed border-red-600 ml-2 pl-2">
               {category}
             </p>
           </div>

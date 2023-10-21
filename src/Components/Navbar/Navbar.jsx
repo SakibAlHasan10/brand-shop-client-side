@@ -21,12 +21,12 @@ const Navbar = () => {
     setTheme(!theme);
   };
   return (
-    <div className={` bg-base-100 text-black shadow-md`}>
+    <div className={` bg-base-100 shadow-md`}>
       <ToastContainer />
       <div className="navbar  max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn text-black btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -44,7 +44,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className={` menu menu-sm text-black dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52`}
+              className={` menu menu-sm  dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52`}
             >
               <li>
                 <NavLink
@@ -83,7 +83,7 @@ const Navbar = () => {
           </a>
           {/* <img src="/tidal-wave.png" alt="" className="h-16 w-40"/> */}
         </div>
-        <div className="navbar-center text-black hidden lg:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
               <NavLink
@@ -131,7 +131,7 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 text-black shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
                 >
                   <li>
                     <a className="justify-between">

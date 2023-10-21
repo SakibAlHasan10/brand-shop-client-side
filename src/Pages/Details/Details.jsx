@@ -59,7 +59,7 @@ const Details = () => {
       <img
         src={photo}
         alt=""
-        className="w-full md:w-11/12 lg:w-10/12 h-[60vh] md:h-[80vh] lg:h[90vh] rounded-xl"
+        className="w-full border md:w-11/12 lg:w-10/12 h-[60vh] md:h-[80vh] lg:h[90vh] rounded-xl"
       />
       <div className="">
         <h2 className="text-3xl mt-8 font-bold ">{name}</h2>

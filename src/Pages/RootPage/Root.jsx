@@ -12,13 +12,15 @@ const Root = () => {
     loadedData,
   };
   return (
-    <div className={`${theme? 'bg-slate-50': 'bg-black text-white'}`}>
+    <html data-theme={`${theme? "cupcake":"dark"}`}>
+    <div className={``}>
       <DataContext.Provider value={dataInfo}>
         <Navbar></Navbar>
         <Outlet></Outlet>
         <Footer></Footer>
       </DataContext.Provider>
     </div>
+    </html>
   );
 };
 

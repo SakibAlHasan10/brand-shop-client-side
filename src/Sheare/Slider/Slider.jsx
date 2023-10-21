@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 const Slider = ({ children }) => {
   return (
-    <div>
+    <div className="border rounded-lg">
       <div className="relative">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -27,7 +27,7 @@ const Slider = ({ children }) => {
                 className="h-[70vh] z-0 w-full rounded-lg"
               />
               <div className=" bg-[#ffffff62] p-6 rounded-xl absolute top-6 lg:top-16 right-10 md:right-20 text-black  z-20">
-                <p className="text-3xl text-black font-bold">{sl.brand}</p>
+                <p className="text-3xl  font-bold">{sl.brand}</p>
                 <h2 className="text-2xl md:text-3xl lg:text-5xl my-6 text-red-600 font-bold">
                   {sl.name}
                 </h2>

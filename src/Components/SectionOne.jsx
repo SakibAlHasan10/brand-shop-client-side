@@ -9,7 +9,7 @@ const SectionOne = () => {
         <img
           src={loadedData[3].photo}
           alt=""
-          className="w-60 mx-auto mb-4 md:mb-0"
+          className="w-60 mx-auto mb-4 md:mb-0 rounded-xl"
         />
         <div>
           <h2 className="hover:text-red-300 text-2xl font-semibold">
@@ -25,7 +25,7 @@ const SectionOne = () => {
         <img
           src={loadedData[13].photo}
           alt=""
-          className="w-60 mx-auto mb-4 md:mb-0"
+          className="w-60 mx-auto mb-4 md:mb-0 rounded-xl"
         />
         <div>
           <h2 className="hover:text-red-300 text-2xl font-semibold">
