@@ -4,7 +4,7 @@ import { FaPhone } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 const Footer = () => {
   return (
-    <div className="max-w-screen-xl mx-auto mb-16 px-8 ">
+    <div className="max-w-screen-xl mx-auto mb-8 px-8 ">
         <Social></Social>
       <footer className=" place-items-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 p-10 rounded-b-lg bg-[#292929]   text-[#b0afaf]  ">
         <div className="leading-10">

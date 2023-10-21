@@ -5,6 +5,7 @@ import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 
 const SignIn = () => {
   const [errorText, setErrorText] = useState("");
@@ -34,6 +35,9 @@ const SignIn = () => {
   };
   return (
     <div>
+      <Helmet>
+      <title>Login || TidalWave</title>
+      </Helmet>
       <ToastContainer />
       <div className="hero min-h-screen">
         <div className="hero-content w-full flex-col">

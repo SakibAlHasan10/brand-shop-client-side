@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const [visible, setVisible] = useState(true);
@@ -49,10 +50,6 @@ const SignUp = () => {
           photoURL: photo,
         })
           .then(() => {
-            // console.log('profile update')
-
-            // database  for user
-
             fetch("https://tidal-wave-sever.vercel.app/users", {
               method: "POST",
               headers: {
@@ -76,11 +73,18 @@ const SignUp = () => {
           });
       })
       .catch((error) => {
-        console.log(error);
+        if(error){
+          setErrorText(
+            "This email already in use"
+          );
+        }
       });
   };
   return (
     <div>
+      <Helmet>
+      <title>SignUp || TidalWave</title>
+      </Helmet>
       <ToastContainer />
       <div className="hero min-h-screen">
         <div className="hero-content w-full flex-col">
