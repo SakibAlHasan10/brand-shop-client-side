@@ -17,7 +17,6 @@ const Navbar = () => {
       .catch((error) => console.error(error));
   };
   const themeChange = () => {
-    // console.log('hello');
     setTheme(!theme);
   };
   return (

@@ -5,22 +5,21 @@ import { createContext } from "react";
 import useApi from "../../AuthApi/useApi";
 export const DataContext = createContext();
 const Root = () => {
-  const {theme} = useApi()
   const loadedData = useLoaderData();
-
+  const {theme} = useApi()
   const dataInfo = {
     loadedData,
   };
   return (
-    <html data-theme={`${theme? "cupcake":"dark"}`}>
     <div className={``}>
+      <div data-theme={`${theme?"light":"dark"}`}>
       <DataContext.Provider value={dataInfo}>
         <Navbar></Navbar>
         <Outlet></Outlet>
         <Footer></Footer>
       </DataContext.Provider>
     </div>
-    </html>
+    </div>
   );
 };
 
