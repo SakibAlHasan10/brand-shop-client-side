@@ -60,8 +60,8 @@ const routers = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/details/${params.id}`),
       },
       {
         path: "/update/:id",
@@ -70,8 +70,8 @@ const routers = createBrowserRouter([
             <Update></Update>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+        // loader: ({ params }) =>
+          // fetch(`http://localhost:5000/details/${params.id}`),
       },
     ],
   },

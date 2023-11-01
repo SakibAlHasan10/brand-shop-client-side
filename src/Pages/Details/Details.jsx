@@ -1,21 +1,31 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 const Details = () => {
   const loadProduct = useLoaderData();
+  const {id} = useParams()
   const { user, theme } = useApi();
   const [myCart, setMyCart] = useState([]);
+  const [pro, setPro] = useState({})
   const email = user.email;
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${email}`)
-      .then((res) => res.json())
+    axios.get(`http://localhost:5000/details/${email}`, {withCredentials:true})
       .then((data) => {
-        data?.myCart ? setMyCart(data?.myCart) : setMyCart([]);
+        data.data?.myCart ? setMyCart(data?.myCart) : setMyCart([]);
       });
   }, [email]);
-  const { name, brand, price, category, description, photo } = loadProduct;
+
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/details/${id}`, {withCredentials:true})
+    .then(res=>{
+      // console.log(res.data)
+          setPro(res.data)
+    })
+  },[id])
+  const { name, brand, price, category, description, photo } = pro;
   // console.log(myCart);
   const handleMyCart = () => {
     // console.log(myCart)
