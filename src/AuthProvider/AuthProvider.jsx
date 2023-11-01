@@ -47,7 +47,7 @@ useEffect(()=>{
         // console.log(currentUser?.email)
         if(currentUser){
             const loggedUser = {email:currentUser.email}
-            axios.post('http://localhost:5000/jws',loggedUser, {withCredentials: true} )
+            axios.post('http://localhost:5000/jwt',loggedUser, {withCredentials: true} )
             .then(res=>{
                 console.log(res.data)
             })
