@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
+import axios from "axios";
 const auth = getAuth(app)
 export const AuthContext = createContext()
 const AuthProvider = ({children}) => {
@@ -43,6 +44,14 @@ useEffect(()=>{
     const unSubscribe = onAuthStateChanged(auth, currentUser=>{
         setUser(currentUser)
         setIsLoading(false)
+        // console.log(currentUser?.email)
+        if(currentUser){
+            const loggedUser = {email:currentUser.email}
+            axios.post('http://localhost:5000/jws',loggedUser, {withCredentials: true} )
+            .then(res=>{
+                console.log(res.data)
+            })
+        }
     })
     return ()=>{
         unSubscribe()

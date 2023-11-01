@@ -11,7 +11,7 @@ const SubCut = ({ cart, setMyCart: displayCart }) => {
   const { _id, name, brand, price, category, photo } = cart;
   const [myCart, setMyCart] = useState([]);
   useEffect(() => {
-    fetch(`https://tidal-wave-sever.vercel.app/users/${email}`)
+    fetch(`http://localhost:5000/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyCart(data?.myCart);
@@ -27,7 +27,7 @@ const SubCut = ({ cart, setMyCart: displayCart }) => {
         email,
         allCart,
       };
-      fetch(`https://tidal-wave-sever.vercel.app/users`, {
+      fetch(`http://localhost:5000/users`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
