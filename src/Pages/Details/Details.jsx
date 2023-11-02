@@ -1,37 +1,41 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 const Details = () => {
-  const loadProduct = useLoaderData();
-  const {id} = useParams()
+  // const loadProduct = useLoaderData();
+  const { id } = useParams();
+  console.log(id);
   const { user, theme } = useApi();
   const [myCart, setMyCart] = useState([]);
-  const [pro, setPro] = useState({})
+  const [pro, setPro] = useState({});
   const email = user.email;
   useEffect(() => {
-    axios.get(`http://localhost:5000/details/${email}`, {withCredentials:true})
+    axios
+      .get(`http://localhost:5000/users/${email}`, { withCredentials: true })
       .then((data) => {
+        console.log("user", data);
         data.data?.myCart ? setMyCart(data?.myCart) : setMyCart([]);
       });
   }, [email]);
 
-  useEffect(()=>{
-    axios.get(`http://localhost:5000/details/${id}`, {withCredentials:true})
-    .then(res=>{
-      // console.log(res.data)
-          setPro(res.data)
-    })
-  },[id])
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/details/${id}`, { withCredentials: true })
+      .then((res) => {
+        console.log(res.data);
+        setPro(res.data);
+      });
+  }, [id]);
   const { name, brand, price, category, description, photo } = pro;
   // console.log(myCart);
   const handleMyCart = () => {
-    // console.log(myCart)
-    const findProduct = myCart?.find((prod) => prod._id === loadProduct._id);
+    console.log(myCart);
+    const findProduct = myCart?.find((prod) => prod._id === pro._id);
     if (!findProduct) {
-      const allCart = [...myCart, loadProduct];
+      const allCart = [...myCart, pro];
       const updateCart = {
         email,
         allCart,
@@ -51,13 +55,13 @@ const Details = () => {
             });
           }
         });
-      // console.log(updateCart);
+      console.log(updateCart);
     }
   };
   return (
     <div className="max-w-screen-xl mx-auto px-8 ">
       <Helmet>
-      <title>Details || TidalWave</title>
+        <title>Details || TidalWave</title>
       </Helmet>
       <ToastContainer />
       <div className="text-center justify-center mb-8 flex mt-10 font-semibold text-xl ">
@@ -81,7 +85,9 @@ const Details = () => {
       <div className="flex justify-center">
         <button
           onClick={handleMyCart}
-          className={`${theme? 'text-black':'text-white'} btn btn-outline mb-10 w-full md:w-1/2 `}
+          className={`${
+            theme ? "text-black" : "text-white"
+          } btn btn-outline mb-10 w-full md:w-1/2 `}
         >
           Add to cart
         </button>
