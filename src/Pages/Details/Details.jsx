@@ -9,7 +9,7 @@ const Details = () => {
   const { id } = useParams();
   console.log(id);
   const { user, theme } = useApi();
-  const [myCart, setMyCart] = useState([]);
+  const [myCartSet, setMyCart] = useState([]);
   const [pro, setPro] = useState({});
   const email = user.email;
   useEffect(() => {
@@ -17,7 +17,7 @@ const Details = () => {
       .get(`http://localhost:5000/users/${email}`, { withCredentials: true })
       .then((data) => {
         console.log("user", data);
-        data.data?.myCart ? setMyCart(data?.myCart) : setMyCart([]);
+        data.data?.myCart ? setMyCart(data.data?.myCart) : setMyCart([]);
       });
   }, [email]);
 
@@ -25,17 +25,17 @@ const Details = () => {
     axios
       .get(`http://localhost:5000/details/${id}`, { withCredentials: true })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setPro(res.data);
       });
   }, [id]);
   const { name, brand, price, category, description, photo } = pro;
   // console.log(myCart);
   const handleMyCart = () => {
-    console.log(myCart);
-    const findProduct = myCart?.find((prod) => prod._id === pro._id);
+    // console.log(myCart);
+    const findProduct = myCartSet?.find((prod) => prod._id === pro._id);
     if (!findProduct) {
-      const allCart = [...myCart, pro];
+      const allCart = [...myCartSet, pro];
       const updateCart = {
         email,
         allCart,
@@ -55,7 +55,7 @@ const Details = () => {
             });
           }
         });
-      console.log(updateCart);
+      // console.log(updateCart);
     }
   };
   return (

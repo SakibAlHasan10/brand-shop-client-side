@@ -2,17 +2,23 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import useApi from "../../AuthApi/useApi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 const Navbar = () => {
   const { user, logOut, theme, setTheme } = useApi();
-  // console.log(user.email)
+  const userEmail=user?.email
+  console.log(userEmail)
   const navigate = useNavigate();
   const handleLogOut = () => {
+    axios.post("http://localhost:5000/logout",userEmail, {withCredentials:true})
+    .then(res=>{
+      console.log(res.data)
+    })
     logOut()
       .then(() => {
+        navigate("/login");
         toast.success("logout successful", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        navigate("/");
       })
       .catch((error) => console.error(error));
   };

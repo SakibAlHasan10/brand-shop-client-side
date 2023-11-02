@@ -78,6 +78,6 @@ const SubCut = ({ cart, setMyCart: displayCart }) => {
 };
 SubCut.propTypes = {
   cart: PropTypes.object,
-  setMyCart: PropTypes.array,
+  setMyCart: PropTypes.func,
 };
 export default SubCut;
